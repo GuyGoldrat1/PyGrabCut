@@ -17,18 +17,27 @@ Below are some examples of image segmentation using the GrabCut algorithm:
 
 ### Example 1: Banana
 Input Image:
-banana1.jpg
-![alt text]https://github.com/GuyGoldrat1/PyGrabCut/blob/main/inputData/imgs/banana1.jpg
+
+<img src="inputData/imgs/banana1.jpg" alt="Banana" width="300"/>
+
 Bounding Box:
 (16, 20, 620, 436)
 
 Resulting Image:
 
+<img src="Results/finalbanana1.jpg" alt="Banana" width="300"/>
+
 Example 2: llama
 Input Image:
-llama.jpg
+
+<img src="inputData/imgs/llama.jpg" alt="Banana" width="300"/>
+
+
 Bounding Box:
 (112, 106, 370, 371)
+Resulting Image:
+
+<img src="Results/finalllama.jpg" alt="Banana" width="300"/>
 
 
 
@@ -36,22 +45,22 @@ Bounding Box:
 
 The main functions in this project include:
 
-### grabcut(img, rect, n_iter=5)`
+### grabcut(img, rect, n_iter=5)
 This is the core function that implements the GrabCut algorithm. It performs the following steps:
 - Initializes a mask for the image.
 - Segments the foreground using Gaussian Mixture Models (GMMs).
 - Iteratively refines the segmentation using graph cuts until convergence or a maximum number of iterations.
 
-### initalize_GMMs(img, mask, n_components=5)`
+### initalize_GMMs(img, mask, n_components=5)
 This function initializes the GMMs for the background and foreground by clustering the pixels within the specified bounding box.
 
-### update_GMMs(img, mask, bgGMM, fgGMM)`
+### update_GMMs(img, mask, bgGMM, fgGMM)
 Updates the GMMs based on the current segmentation mask. This step recalculates the parameters of the GMMs to improve segmentation accuracy.
 
-### calculate_mincut(img, mask, bgGMM, fgGMM)`
+### calculate_mincut(img, mask, bgGMM, fgGMM)
 Performs the graph cut step by constructing a graph from the image and solving the min-cut problem to separate foreground and background.
 
-### update_mask(mincut_sets, mask)`
+### update_mask(mincut_sets, mask)
 Updates the segmentation mask based on the result of the min-cut. Pixels are classified as either background or foreground.
 
 ---
